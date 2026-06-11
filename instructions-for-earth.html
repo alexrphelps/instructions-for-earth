@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instructions Before Visiting Earth</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+  :root {
+    --void: #09090f;
+    --deep: #12121e;
+    --panel: #1a1a2e;
+    --rim: #2a2a45;
+    --dust: #8a8aaa;
+    --chalk: #d4d4e8;
+    --white: #f0f0f8;
+    --amber: #e8b96a;
+    --rust: #c96b45;
+    --moss: #6aaa88;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--void);
+    color: var(--chalk);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.8;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 50% 50%, rgba(104, 88, 160, 0.12) 0%, transparent 70%),
+      radial-gradient(circle at 20% 80%, rgba(201, 107, 69, 0.07) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(106, 170, 136, 0.06) 0%, transparent 50%);
+  }
+
+  .stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 72% 11%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 65%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 88% 55%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 90%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 38%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 95% 75%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 33% 8%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 92%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 77% 83%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 22% 47%, rgba(255,255,255,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 63% 70%, rgba(255,255,255,0.45) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 90% 35%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 18%, rgba(255,255,255,0.4) 0%, transparent 100%);
+  }
+
+  .cover-content { position: relative; z-index: 1; max-width: 680px; }
+
+  .doc-id {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.63rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dust);
+    margin-bottom: 3rem;
+  }
+
+  .cover h1 {
+    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.12;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cover h1 em {
+    color: var(--amber);
+    font-style: normal;
+  }
+
+  .subtitle {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dust);
+    margin-bottom: 4rem;
+  }
+
+  .divider {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--rim), transparent);
+    margin: 0 auto 3rem;
+  }
+
+  .edition-note {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--dust);
+    max-width: 440px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ── BODY ── */
+  .body {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+  }
+
+  .section {
+    margin-bottom: 4rem;
+    padding-top: 5rem;
+    border-top: 1px solid var(--rim);
+  }
+
+  .section:first-child { border-top: none; padding-top: 6rem; }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rim);
+  }
+
+  h2 {
+    font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    color: var(--chalk);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  em { font-style: italic; color: var(--white); }
+
+  .warning {
+    background: rgba(201, 107, 69, 0.07);
+    border-left: 2px solid var(--rust);
+    padding: 1.3rem 1.6rem;
+    margin: 2.2rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .warning p { color: var(--chalk); font-size: 0.96rem; margin: 0; }
+
+  .warning strong {
+    color: var(--rust);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .tip {
+    background: rgba(106, 170, 136, 0.06);
+    border-left: 2px solid var(--moss);
+    padding: 1.3rem 1.6rem;
+    margin: 2.2rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .tip p { color: var(--chalk); font-size: 0.96rem; margin: 0; }
+
+  .tip strong {
+    color: var(--moss);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .pull-quote {
+    font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 300;
+    line-height: 1.55;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    margin: 2.8rem 0;
+    border-top: 1px solid var(--rim);
+    border-bottom: 1px solid var(--rim);
+  }
+
+  .field-note {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.74rem;
+    line-height: 1.85;
+    color: var(--dust);
+    background: var(--panel);
+    border: 1px solid var(--rim);
+    padding: 1.6rem;
+    margin: 2.4rem 0;
+    border-radius: 4px;
+  }
+
+  .field-note .note-header {
+    color: var(--amber);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .glossary-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--rim);
+  }
+
+  .glossary-item:last-child { border-bottom: none; }
+
+  .glossary-term {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.73rem;
+    color: var(--amber);
+    letter-spacing: 0.04em;
+    padding-top: 0.2rem;
+    line-height: 1.5;
+  }
+
+  .glossary-def {
+    font-size: 0.96rem;
+    color: var(--dust);
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  .fact-aside {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    margin: 2.4rem 0;
+    padding: 1.3rem 1.5rem;
+    background: rgba(232, 185, 106, 0.04);
+    border: 1px solid rgba(232, 185, 106, 0.15);
+    border-radius: 4px;
+  }
+
+  .fact-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    opacity: 0.7;
+  }
+
+  .fact-aside p {
+    font-size: 0.93rem;
+    color: var(--dust);
+    font-style: italic;
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .question-block {
+    text-align: center;
+    padding: 3rem 1rem;
+    margin: 3rem 0;
+  }
+
+  .question-block p {
+    font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+    font-style: italic;
+    color: var(--dust);
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .question-block p:last-child { margin-bottom: 0; }
+
+  /* ── CLOSING ── */
+  .closing {
+    text-align: center;
+    padding: 7rem 2rem 5rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .closing::before {
+    content: '✦';
+    display: block;
+    font-size: 0.8rem;
+    color: var(--rim);
+    margin-bottom: 3rem;
+    letter-spacing: 0.8em;
+    padding-left: 0.8em;
+  }
+
+  .closing p {
+    font-style: italic;
+    color: var(--dust);
+    max-width: 460px;
+    margin: 0 auto 1.6rem;
+    font-size: 1.05rem;
+  }
+
+  .stamp {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rim);
+    margin-top: 3.5rem;
+  }
+
+  /* ── THINKING SPACE ── */
+  .thinking-space {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 6rem;
+    position: relative;
+  }
+
+  .thinking-space-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(42, 42, 69, 0.6);
+  }
+
+  /* ── SOLAR SYSTEM ── */
+  .solar-finale {
+    /* Keep the image aligned to the bottom of the viewport */
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    /* No extra space so the image sits flush to the bottom */
+    margin-bottom: 0;
+  }
+
+  .solar-canvas {
+    width: 100%;
+    /* height is no longer relied upon for the static image */
+    height: auto;
+    position: relative;
+  }
+
+  /* Static image replacement: scale to width, preserve aspect ratio */
+  .solar-finale img.solar-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  /* Sun — far left, partially clipped */
+  .sun {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #fff5c0, #f5c842 30%, #e8861a 65%, #a04010 100%);
+    box-shadow:
+      0 0 60px 20px rgba(245, 180, 50, 0.25),
+      0 0 120px 40px rgba(245, 150, 30, 0.12);
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Planets — positioned left to right, Earth off-center right */
+  .planet {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Mercury */
+  .mercury {
+    width: 12px; height: 12px;
+    background: radial-gradient(circle at 35% 35%, #b8a898, #6e5d50);
+    left: 17%;
+  }
+
+  /* Venus */
+  .venus {
+    width: 22px; height: 22px;
+    background: radial-gradient(circle at 35% 35%, #f5e6a0, #d4a040 50%, #a06820);
+    left: 24%;
+    transform: translateY(calc(-50% + 18px));
+  }
+
+  /* Earth — highlighted, placed at ~72% so it's right of center */
+  .earth-wrap {
+    position: absolute;
+    left: 68%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .earth {
+    width: 34px; height: 34px;
+    background: radial-gradient(circle at 38% 35%, #b8e0f0, #2a7acc 30%, #1a4a8a 60%, #0d2a50);
+    box-shadow:
+      0 0 18px 4px rgba(60, 140, 220, 0.2),
+      inset -6px -6px 12px rgba(0,0,0,0.4);
+    position: relative;
+  }
+
+  .earth::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background:
+      radial-gradient(ellipse 30% 18% at 45% 38%, rgba(120,200,100,0.55) 0%, transparent 100%),
+      radial-gradient(ellipse 20% 14% at 62% 55%, rgba(120,200,100,0.45) 0%, transparent 100%),
+      radial-gradient(ellipse 16% 10% at 28% 60%, rgba(120,200,100,0.35) 0%, transparent 100%);
+  }
+
+  .earth-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(140, 180, 220, 0.5);
+    text-align: center;
+    margin-top: 0.8rem;
+    white-space: nowrap;
+  }
+
+  /* Mars */
+  .mars {
+    width: 20px; height: 20px;
+    background: radial-gradient(circle at 35% 35%, #e8a070, #c04820 50%, #801000);
+    left: 79%;
+    transform: translateY(calc(-50% - 12px));
+  }
+
+  /* Jupiter */
+  .jupiter {
+    width: 70px; height: 70px;
+    background: radial-gradient(circle at 38% 38%, #e8c8a0, #c8986a 30%, #a87040);
+    left: 85%;
+    transform: translateY(-50%);
+    overflow: hidden;
+  }
+
+  .jupiter::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      175deg,
+      transparent 0px,
+      transparent 6px,
+      rgba(160, 80, 20, 0.2) 6px,
+      rgba(160, 80, 20, 0.2) 9px
+    );
+  }
+
+  /* Saturn — partially off right edge */
+  .saturn-wrap {
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(calc(-50% + 30px));
+  }
+
+  .saturn {
+    width: 52px; height: 52px;
+    background: radial-gradient(circle at 38% 38%, #f0e0b0, #d4b870 40%, #a08840);
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .saturn-ring {
+    position: absolute;
+    width: 100px;
+    height: 24px;
+    border: 3px solid rgba(210, 180, 100, 0.35);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(72deg);
+    pointer-events: none;
+  }
+
+  /* orbit lines */
+  .orbit-lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .orbit-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(42, 42, 69, 0.5) 20%, rgba(42, 42, 69, 0.5) 80%, transparent);
+    width: 100%;
+    top: 50%;
+  }
+
+  .orbit-line:nth-child(1) { transform: translateY(-44px); opacity: 0.4; }
+  .orbit-line:nth-child(2) { transform: translateY(-22px); opacity: 0.5; }
+  .orbit-line:nth-child(3) { transform: translateY(0px); opacity: 0.6; }
+  .orbit-line:nth-child(4) { transform: translateY(22px); opacity: 0.5; }
+  .orbit-line:nth-child(5) { transform: translateY(44px); opacity: 0.4; }
+
+  /* asteroid belt */
+  .asteroid-belt {
+    position: absolute;
+    left: 51%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 120px;
+    background: repeating-linear-gradient(
+      to right,
+      transparent 0px,
+      transparent 3px,
+      rgba(80, 70, 60, 0.2) 3px,
+      rgba(80, 70, 60, 0.2) 4px
+    );
+    opacity: 0.5;
+  }
+
+  @media (max-width: 600px) {
+    .solar-canvas { height: 400px; }
+    .sun { width: 120px; height: 120px; left: -50px; }
+    .jupiter { width: 50px; height: 50px; }
+    .earth { width: 26px; height: 26px; }
+  }
+
+  @media (max-width: 480px) {
+    .glossary-item { grid-template-columns: 1fr; gap: 0.3rem; }
+  }
+
+  /* ── AUDIO CONTROLS ── */
+  .audio-controls {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    background: rgba(10,10,18,0.72);
+    color: var(--chalk);
+    border: 1px solid rgba(255,255,255,0.04);
+    padding: 0.45rem 0.6rem;
+    border-radius: 8px;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    z-index: 1200;
+    backdrop-filter: blur(6px);
+  }
+
+  /* Bottom-page fade: slow transition from dark blue to pure black */
+  body::after {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 35vh; /* covers lower portion of viewport */
+    pointer-events: none;
+    z-index: 1100; /* below audio-controls (1200) but above most content */
+    background: linear-gradient(
+      to bottom,
+      rgba(18,18,30,0) 0%,       /* transparent near top of fade */
+      rgba(12,18,36,0.25) 40%,   /* subtle dark-blue tint */
+      rgba(6,10,20,0.6) 70%,
+      #000 100%                  /* pure black at bottom */
+    );
+    transition: background 1.5s ease; /* slow subtle transition if toggled */
+  }
+
+  .audio-controls button#audio-toggle {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--chalk);
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+  }
+
+  .audio-controls label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--dust);
+    margin-right: 6px;
+  }
+
+  .audio-controls input[type="range"] {
+    width: 120px;
+    accent-color: var(--amber);
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ COVER ═══════════════════════════ -->
+<section class="cover">
+  <div class="stars"></div>
+  <div class="cover-content">
+    <p class="doc-id">Interstellar Transit Authority &nbsp;·&nbsp; Form 7-Ω &nbsp;·&nbsp; Don't panic</p>
+    <h1>Instructions Before<br>Visiting <em>Earth</em></h1>
+    <p class="subtitle">A Mandatory Briefing for First-Time Arrivals</p>
+    <div class="divider"></div>
+    <p class="edition-note">Please read in full before atmospheric entry. We accept no liability for existential confusion, temporal disorientation, involuntary weeping at the sight of dogs, sudden and unreasonable devotion to warm bread, or an inexplicable urge to acquire a towel. </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ BODY ═══════════════════════════ -->
+<main class="body">
+
+  <!-- PRELIMINARY -->
+  <div class="section">
+    <div class="section-label">Preliminary Remarks</div>
+    <h2>About this document</h2>
+    <p>You are about to visit a small, damp rock orbiting an unremarkable yellow star in an unfashionable arm of the Milky Way. The planet answers to several names. Officially: Earth. Locally: "the world," "here," "home," and — depending on the traffic — "an absolute nightmare." All are correct; use whichever gets you through customs faster. </p>
+    <p>This briefing exists because previous visitors returned from the planet in conditions we were not prepared to treat. One senior analyst from the Crab Nebula outpost spent the better part of a decade sitting quietly in rooms, looking out of windows. She said she was "thinking about a sunset." She had only been gone six weeks. We have since made this document compulsory reading, and added a recovery annex which we will not be including here because frankly it didn't help.</p>
+    <p>The document is organised chronologically — from the moment of arrival into your host form, through the arc of a life on Earth, to the moment of departure. Read it in order. The universe is under no obligation to make sense, but this briefing at least attempts to.</p>
+
+    <div class="warning">
+      <strong>A Note on Tone</strong>
+      We have made every effort to remain clinically detached in the preparation of this guide. This effort failed somewhere around the section on music. We apologise in advance.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Chapter I — Arrival</div>
+    <h2>nobody remembers the beginning</h2>
+    <p>You will arrive without luggage, without language, and without any of the theoretical frameworks you have spent centuries accumulating. You will arrive, in fact, as roughly three kilograms of startled mammal. This is standard. Do not panic.</p>
+    <p>The entry process is noisy and undignified, which sets the tone for much of what follows. You will be received by large warm hands, wrapped in something soft, and handed to a person who will look at your face as though it contains the entire answer to a question they forgot they were asking. In a way, it does. We are not sure.</p>
+    <p>You will not be able to focus your eyes properly for several weeks. You will not need to. The important information — warmth, voice, presence — will reach you regardless. The body, despite its other limitations, is extremely good at detecting love at close range.</p>
+
+    <div class="fact-aside">
+      <div class="fact-icon">◎</div>
+      <p>Humans are born more helpless than virtually any other mammal on the planet. A newborn giraffe can walk within hours. A newborn human cannot support its own head. Evolution presumably had reasons. Humans spend considerable time trying to work out what they were.</p>
+    </div>
+
+    <p>In the early period you will sleep a great deal, eat when offered, and cry as a form of communication that covers every possible need simultaneously. This system is inefficient but it works, and some humans never fully abandon it.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Chapter II — Early Configuration</div>
+    <h2>everything is enormous</h2>
+    <p>The years that follow arrival are extraordinary in a way that will only become clear in retrospect. You will be approximately one metre tall in a world designed for people twice your height. Tables will be at face level. Adults will seem like a different species. Summer will last forever and a single afternoon can contain more genuine experience than most of what comes after.</p>
+    <p>You will learn language at a terrifying pace — humans acquire the grammatical structure of their native tongue before they can tie their shoes, a feat that still baffles our linguists. You will ask "why" approximately forty times per day. Nobody will give you a satisfying answer. This will not stop you asking.</p>
+
+      <div class="fact-aside">
+        <div class="fact-icon">◎</div>
+        <p>Children laugh, on average, around 300 times per day. Adults manage approximately 20. Nobody decided this would happen. It simply did. We are not sure what this tells us, but we think it tells us something important.</p>
+      </div>
+
+    <p>You will also begin to understand, during this period, that the world existed before you arrived in it. This is philosophically destabilising and most humans process it by refusing to think about it directly. Instead they think about snacks, football, and whether the person two seats over in class thinks they are interesting. This is, we would argue, a reasonable approach.</p>
+
+    <div class="question-block">
+      <p>When did you stop thinking a cardboard box was the best possible gift?</p>
+      <p>When did the question "why is the sky blue" stop feeling like a question that mattered?</p>
+    </div>
+
+    <p>We are not asking rhetorically; we genuinely want to know. We have been trying to identify the exact moment this transition occurs for eleven hundred years and have not yet found it.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Chapter III — System Instability</div>
+    <h2>reconfiguration years</h2>
+    <p>At some point during your second decade, the body will decide to upgrade its own operating system without asking your permission. This process, which humans call adolescence, takes approximately a decade and involves the simultaneous reconstruction of the endocrine system, the prefrontal cortex, and the entire social identity. It is not recommended that all three be done at the same time. Nonetheless, this is how it works.</p>
+    <p>You will feel, during this period, that everything matters immensely and that you are the first person in the history of the species to have felt it this deeply. This is not technically true, but it is not entirely false either. The intensity is real. The feeling that you might die if a specific person does not return your message is real. The sense that a song has been written specifically about your interior life is, improbably, also real. Or real enough.</p>
+
+    <div class="fact-aside">
+      <div class="fact-icon">◎</div>
+      <p>Humans have been carving their initials into things since the Palaeolithic era. The impulse to say <em>I was here</em> appears to be among the oldest urges the species possesses. It predates agriculture. It predates the wheel. It predates, apparently, the concept of not damaging other people's property.</p>
+    </div>
+
+    <div class="pull-quote">
+      They invented music before they invented writing. They invented writing before they invented mathematics. They invented mathematics before they invented weekends, which some argue was the whole point.
+    </div>
+
+    <p>It is worth noting that during this phase, humans form their most irrational attachments and their most formative ones. The friendships made at this age carry an unusual weight — a specific density of shared experience that proves remarkably difficult to replicate later. We are not sure why proximity and chaos produce lasting bonds. But they do. Our data on this is extensive.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Chapter IV — The Open Road</div>
+    <h2>now what?</h2>
+    <p>At this stage the humans around you will begin asking what you plan to do with your life. This question will be asked as though there is a correct answer; there is not. There is also no real deadline, despite all evidence to the contrary. We have reviewed the literature and can confirm that virtually nobody knows what they are doing in their twenties and this is, in the fullness of time, completely fine.</p>
+    <p>You will move somewhere. You will live with strangers. You will eat things you probably shouldn't at hours that cannot be defended. You will stay up too late in rooms that are slightly too warm and say things to people you have known for three weeks that you've never said to anyone else, and in the morning you will feel both exposed and somehow lighter. This is called friendship and it is one of the better features of the planet.</p>
+
+    <div class="field-note">
+      <div class="note-header">Recorded Observation — Field Agent 12, Visit #2 &nbsp;·&nbsp; 06:30 Local Time, Residential District</div>
+      A woman was moving slowly through her garden with a watering hose. She was talking to something. Not to me. Not to herself, really. I got closer. She was talking to the birds, picking through a small pile of seeds she'd scattered below the bird feeder. She knew their habits. She knew which ones was bolder. She had a name for at least two of them. The seeds had been put there deliberately, in that spot, because she'd noticed which direction they liked to approach from. She did this every morning. Nobody had asked her to. There was no occasion. I observed for forty minutes and tried to file a report and found I had nothing to say that wasn't inadequate.
+    </div>
+
+    <p>You will also, during this chapter, fall in love. Possibly more than once. Possibly in ways that seem entirely incompatible with each other. Humans are capable of loving in radically different modes — the love that reorganises your personality, the love that is mostly relief, the love that arrives quietly and turns out to be the one that stays — and they frequently do not know which kind they are in until later.</p>
+
+      <div class="fact-aside">
+        <div class="fact-icon">◎</div>
+        <p>The human brain, when in the early stages of romantic love, is chemically indistinguishable from a brain experiencing obsessive-compulsive disorder. We neither endorse this system nor have ever encountered a species that would choose to remove it.</p>
+      </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Chapter V — The Long Road</div>
+    <h2>some guidebooks call this "your prime"</h2>
+    <p>There is a long stretch in the middle of an Earth life where things become simultaneously more complex and more settled. You will know things now. You will have opinions. You will have a preferred brand of coffee, a sense of how you like to be spoken to, a small collection of injuries that predict rain. You will have, in other words, accumulated yourself.</p>
+    <p>This is also the phase in which the humans you know will begin to divide. Some will have children and spend the better part of a decade in a state of exhausted bewilderment that they describe, consistently and with apparent sincerity, as the best thing that ever happened to them. Others will not, and will build lives of a different richness — one the species has not yet developed adequate language to praise properly. Both are real lives. Both contain what our instruments classify as meaning, though they were not really designed for this.</p>
+
+    <div class="fact-aside">
+      <div class="fact-icon">◎</div>
+      <p>Octopuses can see polarised light and solve puzzles and unscrew jars from the inside. They live for approximately three years, have no centralised brain, and appear to dream. Humans find them fascinating, study them extensively, and then largely don't think about the implications. We mention this because octopuses are relevant to any serious discussion of Earth and nobody ever includes them.</p>
+    </div>
+
+    <p>In the middle years, time will do something strange. It will begin to speed up. A year will feel like what a month felt like at age nine. You will look at a photograph taken four years ago and think it was last summer. The humans find this distressing and spend considerable resources trying to slow it down — journals, rituals, photographs, the deliberate construction of memories as they happen. Whether this works is an open question. We suspect the real answer is: not really, but the trying counts for something.</p>
+
+    <div class="question-block">
+      <p>Do you know where you were the exact moment you stopped being young?</p>
+      <p>Was there a last time you did something for the first time, and did you know it was the last time?</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Chapter VI — Accumulated Evidence</div>
+    <h2>life, and what arrives with it</h2>
+    <p>The body, it should be said, does not improve with time. This surprises nobody who has been warned about it and yet surprises everyone regardless. The knees in particular will become philosophically complex. The back will develop opinions. The eyes will begin to require assistance and the ears will start selectively ignoring things, a feature which, depending on your perspective, is either a defect or an adaptation.</p>
+    <p>What does improve — in the versions of this life that go reasonably well — is the part that cannot be measured. Humans in later life report, with remarkable consistency, that they have less patience for things that do not matter and more for things that do. They become better at sitting still. They become, often, funnier — less invested in seeming impressive, more willing to let things be exactly what they are. Some of them become extraordinary. They know things about suffering that cannot be looked up. They know things about joy that are harder to explain than joy usually is.</p>
+
+    <div class="fact-aside">
+      <div class="fact-icon">◎</div>
+      <p>There are trees alive on Earth today that were already old when the Roman Empire fell. They have survived fires, ice, centuries of uninterrupted noise. They do not appear to be in a hurry. Some humans find this comforting; others find it unsettling. We note that both responses are reasonable.</p>
+    </div>
+
+    <p>The losses accumulate now. The species does not handle loss well in theory and handles it far better in practice. They sit with each other. They bring food — always food, the first and truest language of care. They say inadequate things and everybody knows the things are inadequate and this is somehow fine because the showing up is the thing, not the sentence.</p>
+
+    <div class="pull-quote">
+      Grief, on this planet, is love with nowhere to go. They have not yet found a solution to this. They have found each other, which is not a solution but has so far served the same purpose.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Chapter VII — Field Intelligence</div>
+    <h2>Things the briefings never tell you</h2>
+    <p>The following observations were compiled from field agent reports across eleven hundred and forty-two Earth visits and are reproduced here because they appeared, with unusual frequency, in debriefs filed under the heading <em>Things I Did Not Expect.</em></p>
+
+    <div class="glossary-item">
+      <div class="glossary-term">Rain on hot pavement</div>
+      <div class="glossary-def">Has a smell. Humans have a word for it — petrichor — which is unusual, because they do not have words for most of the things they love. It is one of the most reliably reported sources of involuntary comfort in the entire survey.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Bread</div>
+      <div class="glossary-def">Humans have been making bread for at least fourteen thousand years. They continue to act, every time a fresh loaf comes out of an oven, as if this is a surprise. It is not a surprise. It remains, somehow, a surprise.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">The word "fine"</div>
+      <div class="glossary-def">Can mean: acceptable, excellent, catastrophic, or a request to please stop asking. Context is essential. The hour of day is the most reliable indicator. After ten p.m., assume catastrophic.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">A library</div>
+      <div class="glossary-def">A building containing everything humanity has thought hard enough to write down, which any person may enter freely and borrow from at no cost. Humans walk past these buildings daily without appearing to find this remarkable. We find it remarkable.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Silence between friends</div>
+      <div class="glossary-def">A completely different substance from silence between strangers. We spent considerable time trying to quantify the difference. We eventually concluded the difference is simply: safety.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">A dog</div>
+      <div class="glossary-def">An animal that humans domesticated roughly fifteen thousand years ago and which has since returned the favour so thoroughly that neither species has fully recovered. The relationship is not well understood by either party. It doesn't need to be.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">The sky at 5 a.m.</div>
+      <div class="glossary-def">A specific shade of dark blue that exists only in the window between night and morning. Sailors, poets, and insomniacs are disproportionately aware of it. We recommend witnessing it at least once.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">A held door</div>
+      <div class="glossary-def">A micro-signal that says: I see you, and you are worth the thirty seconds it takes to hold this. An entire civilisation could be built on this gesture. In the better versions of Earth, one is.</div>
+    </div>
+
+    <div class="fact-aside">
+      <div class="fact-icon">◎</div>
+      <p>Humans have mapped the surface of Mars at higher resolution than they have mapped the floor of their own oceans. The oceans cover 71% of the planet. We do not have a comment on this. We simply find it very human.</p>
+    </div>
+  </div>
+
+  <!-- DEPARTURE -->
+  <div class="section">
+    <div class="section-label">Chapter VIII — Departure Protocol</div>
+    <h2>leaving, and what it means</h2>
+    <p>All Earth visits end. This is not a design flaw, though it will feel like one. The locals have spent their entire recorded history trying to come to terms with this fact, and have produced, in the effort: religion, philosophy, poetry, architecture, obsessive exercise routines, the concept of legacy, several thousand years of argument, and at least four truly transcendent pieces of music. We are not sure they have arrived at an answer. We are fairly sure the effort was worth it.</p>
+    <p>In the final chapter, many things become clear that were previously obscured. The humans who have lived longest report that almost none of their regrets are about the things they did. They are about the things they didn't — the trips not taken, the apologies not delivered, the feelings described only in retrospect when description was no longer useful. We include this not as instruction but as the kind of thing that is better to hear now than to discover later.</p>
+
+    <div class="question-block">
+      <p>Is there a conversation you've been meaning to have?</p>
+      <p>Is there someone who doesn't know what they mean to you?</p>
+      <p>How long have you been meaning to tell them?</p>
+    </div>
+
+    <p>When your time on Earth ends, you will not be able to take anything physical with you. You will find, also, that you do not need to. You will have carried it for years without realising: the specific weight of a summer afternoon, the sound of a voice that always knew when something was wrong, the smell of a kitchen that meant you were home. These are not memories. They are more structural than that.</p>
+
+    <div class="warning">
+      <strong>Final Note from Us</strong>
+      Previous arrivals have asked us, upon their return, what the planet is for. We have reviewed the data extensively. Our best current answer is: for this. Whatever this turns out to be for you. This is not as vague as it sounds. It is, we believe, almost exactly precise enough.
+    </div>
+
+    <p>You may file your debrief within 30 cycles of return. Most visitors take longer. There is no penalty for this. Some never file at all. We understand.</p>
+  </div>
+
+</main>
+
+<!-- ═══════════════════════════ CLOSING ═══════════════════════════ -->
+<footer class="closing">
+  <p>Safe travels. Try the bread. Say the thing you've been meaning to say.</p>
+  <p>The universe is very large and mostly empty. This place is the exception. Treat it accordingly.</p>
+  <div class="stamp">ITA Form 7-Ω &nbsp;·&nbsp; Approved for General Distribution</div>
+</footer>
+
+<!-- ═══════════════════════════ THINKING SPACE ═══════════════════════════ -->
+<div class="thinking-space">
+  <div class="thinking-space-label">· · ·</div>
+</div>
+
+<!-- ═══════════════════════════ SOLAR SYSTEM ═══════════════════════════ -->
+<div class="solar-finale">
+  <img src="solar-system.png" alt="Solar system illustration" class="solar-image">
+</div>
+
+<!-- Background audio and controls -->
+<audio id="bg-audio" autoplay loop muted>
+  <source src="Marconi Union - Weightless.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<div class="audio-controls" role="region" aria-label="Background audio controls">
+  <button id="audio-toggle" aria-pressed="false">Enable Sound</button>
+  <label for="audio-volume">Vol</label>
+  <input id="audio-volume" type="range" min="0" max="100" value="25" aria-label="Volume">
+</div>
+
+<script>
+(function () {
+  const audio = document.getElementById('bg-audio');
+  const toggle = document.getElementById('audio-toggle');
+  const volume = document.getElementById('audio-volume');
+  const STORAGE_KEY = 'ita_audio_state_v1';
+
+  // Load persisted state
+  let hasSavedState = false;
+  let savedState = null;
+  try {
+    savedState = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+    if (savedState) {
+      hasSavedState = true;
+      if (typeof savedState.volume === 'number') volume.value = Math.round(savedState.volume * 100);
+      if (typeof savedState.muted === 'boolean') audio.muted = savedState.muted;
+    }
+  } catch (e) {
+    /* ignore */
+  }
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ muted: audio.muted, volume: audio.volume }));
+    } catch (e) { /* ignore */ }
+  }
+
+  function updateUI() {
+    toggle.textContent = audio.muted ? 'Enable Sound' : 'Disable Sound';
+    toggle.setAttribute('aria-pressed', String(!audio.muted));
+    // sync slider if changed programmatically
+    volume.value = Math.round(audio.volume * 100);
+  }
+
+  // initialize (default to 25% when no explicit slider value)
+  audio.volume = (volume.value || 25) / 100;
+  updateUI();
+
+  toggle.addEventListener('click', function () {
+    audio.muted = !audio.muted;
+    if (!audio.muted) audio.play().catch(() => {});
+    updateUI();
+    saveState();
+  });
+
+  volume.addEventListener('input', function () {
+    audio.volume = volume.value / 100;
+    if (audio.muted && volume.value > 0) {
+      audio.muted = false;
+      audio.play().catch(() => {});
+    }
+    updateUI();
+    saveState();
+  });
+
+  // Attempt to play (some browsers require interaction unless muted)
+  audio.play().catch(() => {});
+
+  // If playback is blocked, attempt to play on first user interaction.
+  // This covers both cases: no saved preference (we will unmute on gesture)
+  // and saved preference exists but the browser still requires a user gesture to start playback.
+  if (audio.paused) {
+    const onGesture = function () {
+      // If there's no saved preference, assume user intent and unmute before playing.
+      if (!hasSavedState) {
+        audio.muted = false;
+      }
+      audio.play().catch(() => {});
+      updateUI();
+      saveState();
+    };
+
+    ['click', 'scroll', 'touchstart', 'keydown'].forEach(evt => {
+      window.addEventListener(evt, onGesture, { once: true, passive: true });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
